@@ -1,0 +1,17 @@
+REM BUST 07 — Undo Persistence
+REM Removes the harmless marker line from the user PowerShell profile.
+
+DELAY 750
+GUI r
+DELAY 300
+STRING powershell
+ENTER
+DELAY 900
+
+REM Remove the marker line from the profile
+STRING (Get-Content $profile) | Where-Object { $_ -notmatch '
+
+\[BUST-TEST-07 - PROFILE LOADED\]
+
+' } | Set-Content $profile
+ENTER
