@@ -1,0 +1,23 @@
+REM BUST 05 — Filesystem Write Test
+REM Creates a harmless temp file with a marker string.
+
+DELAY 750
+GUI r
+DELAY 300
+STRING cmd
+ENTER
+DELAY 600
+
+REM Navigate to temp directory
+STRING cd %TEMP%
+ENTER
+DELAY 300
+
+REM Create a harmless marker file
+STRING echo [BUST-TEST-05] > bust_test_05.txt
+ENTER
+DELAY 300
+
+REM Confirm file creation (visible output)
+STRING type bust_test_05.txt
+ENTER
