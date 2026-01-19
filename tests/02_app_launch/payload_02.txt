@@ -1,0 +1,11 @@
+REM BUST 02 — Application Launch Test
+REM Opens Notepad using a global shortcut, types a marker, and stops.
+
+DELAY 750
+GUI r
+DELAY 300
+STRING notepad
+ENTER
+DELAY 600
+STRING [BUST-TEST-02]
+ENTER
