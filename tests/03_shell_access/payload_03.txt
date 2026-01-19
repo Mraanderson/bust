@@ -1,0 +1,17 @@
+REM BUST 03 — Shell Access Test
+REM Opens a command shell, runs harmless identification commands, and stops.
+
+DELAY 750
+GUI r
+DELAY 300
+STRING cmd
+ENTER
+DELAY 600
+STRING whoami
+ENTER
+DELAY 300
+STRING hostname
+ENTER
+DELAY 300
+STRING date /t
+ENTER
