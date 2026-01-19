@@ -1,0 +1,18 @@
+REM BUST 07 — Persistence Test (Lab Only)
+REM Appends a harmless marker line to the user PowerShell profile.
+
+DELAY 750
+GUI r
+DELAY 300
+STRING powershell
+ENTER
+DELAY 900
+
+REM Ensure the profile file exists
+STRING if (!(Test-Path $profile)) { New-Item -Type File -Path $profile -Force | Out-Null }
+ENTER
+DELAY 600
+
+REM Append a harmless marker line to the profile
+STRING Add-Content -Path $profile -Value 'Write-Output "[BUST-TEST-07 - PROFILE LOADED]"'
+ENTER
