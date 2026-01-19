@@ -1,0 +1,11 @@
+REM BUST 04 — Browser Interaction Test
+REM Opens default browser, navigates to a safe URL, types a marker, and stops.
+
+DELAY 750
+GUI r
+DELAY 300
+STRING https://example.com
+ENTER
+DELAY 1500
+STRING [BUST-TEST-04]
+ENTER
