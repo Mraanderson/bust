@@ -1,0 +1,19 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*.tmp
+
+# Python virtual envs (if you ever add tooling)
+venv/
+__pycache__/
+
+# Logs
+*.log
+
+# Build artifacts (if you add scripts later)
+dist/
+build/
