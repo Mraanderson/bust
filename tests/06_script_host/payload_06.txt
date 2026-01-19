@@ -1,0 +1,13 @@
+REM BUST 06 — Script Host Access Test
+REM Opens PowerShell, runs a harmless command, and stops.
+
+DELAY 750
+GUI r
+DELAY 300
+STRING powershell
+ENTER
+DELAY 800
+
+REM Run a trivial, read-only command
+STRING Write-Output "[BUST-TEST-06]"
+ENTER
