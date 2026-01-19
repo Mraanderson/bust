@@ -1,0 +1,128 @@
+REM BUST Combined Test 01–06 (Windows)
+REM Logs all actions into Notepad with a live checklist.
+
+DELAY 750
+GUI r
+DELAY 300
+STRING notepad
+ENTER
+DELAY 700
+
+REM --- Header ---
+STRING [BUST] Combined Test — Windows
+ENTER
+STRING --------------------------------
+ENTER
+STRING [01] Basic HID ............. pending
+ENTER
+STRING [02] App Launch ............ pending
+ENTER
+STRING [03] Shell Access .......... pending
+ENTER
+STRING [04] Browser Interaction .... pending
+ENTER
+STRING [05] Filesystem Write ....... pending
+ENTER
+STRING [06] Script Host Access ..... pending
+ENTER
+STRING --------------------------------
+ENTER
+ENTER
+
+REM === Stage 01 ===
+ALT TAB
+DELAY 200
+STRING [BUST-TEST-01]
+ENTER
+ALT TAB
+DELAY 200
+CTRL HOME
+DELAY 200
+STRING [01] Basic HID ............. attempted
+ENTER
+
+REM === Stage 02 ===
+ALT TAB
+DELAY 200
+GUI r
+DELAY 300
+STRING notepad
+ENTER
+DELAY 600
+ALT TAB
+DELAY 200
+STRING [02] App Launch ............ attempted
+ENTER
+
+REM === Stage 03 ===
+ALT TAB
+DELAY 200
+GUI r
+DELAY 300
+STRING cmd
+ENTER
+DELAY 600
+STRING whoami > %TEMP%\bust_whoami.txt
+ENTER
+DELAY 300
+ALT TAB
+DELAY 200
+STRING [03] Shell Access .......... attempted
+ENTER
+STRING      whoami: 
+CTRL V
+ENTER
+
+REM === Stage 04 ===
+ALT TAB
+DELAY 200
+GUI r
+DELAY 300
+STRING https://example.com
+ENTER
+DELAY 1500
+ALT TAB
+DELAY 200
+STRING [04] Browser Interaction .... attempted
+ENTER
+
+REM === Stage 05 ===
+ALT TAB
+DELAY 200
+GUI r
+DELAY 300
+STRING cmd
+ENTER
+DELAY 600
+STRING cd %TEMP%
+ENTER
+DELAY 300
+STRING echo [BUST-TEST-05] > bust_test_05.txt
+ENTER
+DELAY 300
+ALT TAB
+DELAY 200
+STRING [05] Filesystem Write ....... attempted
+ENTER
+
+REM === Stage 06 ===
+ALT TAB
+DELAY 200
+GUI r
+DELAY 300
+STRING powershell
+ENTER
+DELAY 900
+STRING Write-Output "[BUST-TEST-06]"
+ENTER
+ALT TAB
+DELAY 200
+STRING [06] Script Host Access ..... attempted
+ENTER
+
+REM --- Footer ---
+ENTER
+STRING --------------------------------
+ENTER
+STRING Test complete.
+ENTER
