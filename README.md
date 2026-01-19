@@ -1,11 +1,5 @@
 # **BUST — BadUSB Safety Tester**
-
-      ____  _   _ ____ _____ 
-     | __ )| | | / ___|_   _|
-     |  _ \| | | \___ \ | |  
-     | |_) | |_| |___) || |  
-     |____/ \___/|____/ |_|  
-      BadUSB Safety Tester
+![BUST Logo](https://raw.githubusercontent.com/Mraanderson/bust/main/docs/logo.jpg)
   ---------------------------
 Safe HID payloads for testing your system’s resistance to keystroke‑injection attacks.  
 No damage, no persistence — just clear visibility into what a rogue USB device could do.
