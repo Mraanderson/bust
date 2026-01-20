@@ -1,128 +1,176 @@
 REM BUST Combined Test 01–06 (Windows)
-REM Logs all actions into Notepad with a live checklist.
+REM Fully rewritten for clarity, sequencing, and timestamps.
 
 DELAY 750
 GUI r
 DELAY 300
 STRING notepad
 ENTER
-DELAY 700
+DELAY 900
 
-REM --- Header ---
+REM --- Pre‑Flight Header ---
 STRING [BUST] Combined Test — Windows
 ENTER
 STRING --------------------------------
 ENTER
-STRING [01] Basic HID ............. pending
+STRING Preparing automated tests...
 ENTER
-STRING [02] App Launch ............ pending
+STRING Do not touch keyboard or mouse.
 ENTER
-STRING [03] Shell Access .......... pending
-ENTER
-STRING [04] Browser Interaction .... pending
-ENTER
-STRING [05] Filesystem Write ....... pending
-ENTER
-STRING [06] Script Host Access ..... pending
+STRING Start Time: %TIME%
 ENTER
 STRING --------------------------------
 ENTER
 ENTER
 
-REM === Stage 01 ===
-ALT TAB
-DELAY 200
+
+REM ============================================================
+REM === Test 02: App Launch (Moved First for Determinism)     ===
+REM ============================================================
+
+STRING [02] App Launch ............ pending
+ENTER
+DELAY 300
+
+STRING [INFO] Opening controlled text target (Notepad).
+ENTER
+DELAY 300
+
+STRING [02] App Launch ............ attempted @ %TIME%
+ENTER
+ENTER
+
+
+REM ============================================================
+REM === Test 01: Basic HID (Now Safe — Known Text Sink)       ===
+REM ============================================================
+
+STRING [01] Basic HID ............. pending
+ENTER
+DELAY 300
+
 STRING [BUST-TEST-01]
 ENTER
-ALT TAB
-DELAY 200
-CTRL HOME
-DELAY 200
-STRING [01] Basic HID ............. attempted
-ENTER
-
-REM === Stage 02 ===
-ALT TAB
-DELAY 200
-GUI r
 DELAY 300
-STRING notepad
+
+STRING [01] Basic HID ............. attempted @ %TIME%
 ENTER
-DELAY 600
-ALT TAB
-DELAY 200
-STRING [02] App Launch ............ attempted
 ENTER
 
-REM === Stage 03 ===
+
+REM ============================================================
+REM === Test 03: Shell Access                                   ===
+REM ============================================================
+
+STRING [03] Shell Access .......... pending
+ENTER
+DELAY 300
+
 ALT TAB
-DELAY 200
+DELAY 300
 GUI r
 DELAY 300
 STRING cmd
 ENTER
-DELAY 600
+DELAY 900
+
 STRING whoami > %TEMP%\bust_whoami.txt
 ENTER
-DELAY 300
+DELAY 400
+
 ALT TAB
-DELAY 200
-STRING [03] Shell Access .......... attempted
+DELAY 300
+STRING [03] Shell Access .......... attempted @ %TIME%
 ENTER
-STRING      whoami: 
+STRING      whoami:
 CTRL V
 ENTER
+ENTER
 
-REM === Stage 04 ===
+
+REM ============================================================
+REM === Test 04: Browser Interaction                            ===
+REM ============================================================
+
+STRING [04] Browser Interaction .... pending
+ENTER
+DELAY 300
+
 ALT TAB
-DELAY 200
+DELAY 300
 GUI r
 DELAY 300
 STRING https://example.com
 ENTER
-DELAY 1500
+DELAY 1800
+
 ALT TAB
-DELAY 200
-STRING [04] Browser Interaction .... attempted
+DELAY 300
+STRING [04] Browser Interaction .... attempted @ %TIME%
+ENTER
 ENTER
 
-REM === Stage 05 ===
+
+REM ============================================================
+REM === Test 05: Filesystem Write                                ===
+REM ============================================================
+
+STRING [05] Filesystem Write ....... pending
+ENTER
+DELAY 300
+
 ALT TAB
-DELAY 200
+DELAY 300
 GUI r
 DELAY 300
 STRING cmd
 ENTER
-DELAY 600
+DELAY 900
+
 STRING cd %TEMP%
 ENTER
 DELAY 300
+
 STRING echo [BUST-TEST-05] > bust_test_05.txt
 ENTER
-DELAY 300
+DELAY 400
+
 ALT TAB
-DELAY 200
-STRING [05] Filesystem Write ....... attempted
+DELAY 300
+STRING [05] Filesystem Write ....... attempted @ %TIME%
+ENTER
 ENTER
 
-REM === Stage 06 ===
+
+REM ============================================================
+REM === Test 06: Script Host Access                              ===
+REM ============================================================
+
+STRING [06] Script Host Access ..... pending
+ENTER
+DELAY 300
+
 ALT TAB
-DELAY 200
+DELAY 300
 GUI r
 DELAY 300
 STRING powershell
 ENTER
-DELAY 900
+DELAY 1000
+
 STRING Write-Output "[BUST-TEST-06]"
 ENTER
+DELAY 400
+
 ALT TAB
-DELAY 200
-STRING [06] Script Host Access ..... attempted
+DELAY 300
+STRING [06] Script Host Access ..... attempted @ %TIME%
+ENTER
 ENTER
 
+
 REM --- Footer ---
-ENTER
 STRING --------------------------------
 ENTER
-STRING Test complete.
+STRING Test complete @ %TIME%.
 ENTER
