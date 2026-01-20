@@ -5,15 +5,17 @@ DELAY 800
 GUI r
 DELAY 500
 STRING notepad
-DELAY 200
+DELAY 1000
 ENTER
-DELAY 1200
+ENTER
+DELAY 1000
 
 REM --- Pre‑Flight Header ---
 STRING [BUST] Combined Test — Windows
 ENTER
 STRING --------------------------------
 ENTER
+DELAY 300
 STRING Preparing automated tests...
 ENTER
 STRING Do not touch keyboard or mouse.
@@ -65,7 +67,7 @@ DELAY 300
 ALT TAB
 DELAY 400
 GUI r
-DELAY 600
+DELAY 1000
 STRING cmd
 DELAY 250
 ENTER
