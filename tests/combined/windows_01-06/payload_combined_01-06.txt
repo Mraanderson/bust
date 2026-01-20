@@ -1,12 +1,13 @@
 REM BUST Combined Test 01–06 (Windows)
-REM Fully rewritten for clarity, sequencing, and timestamps.
+REM Stable rewrite with safe delays and clean sequencing.
 
-DELAY 750
+DELAY 800
 GUI r
-DELAY 300
+DELAY 500
 STRING notepad
+DELAY 200
 ENTER
-DELAY 900
+DELAY 1200
 
 REM --- Pre‑Flight Header ---
 STRING [BUST] Combined Test — Windows
@@ -17,12 +18,9 @@ STRING Preparing automated tests...
 ENTER
 STRING Do not touch keyboard or mouse.
 ENTER
-STRING Start Time: %TIME%
-ENTER
 STRING --------------------------------
 ENTER
 ENTER
-
 
 REM ============================================================
 REM === Test 02: App Launch (Moved First for Determinism)     ===
@@ -30,16 +28,15 @@ REM ============================================================
 
 STRING [02] App Launch ............ pending
 ENTER
-DELAY 300
+DELAY 200
 
-STRING [INFO] Opening controlled text target (Notepad).
+STRING [INFO] Confirming controlled text target (Notepad).
 ENTER
 DELAY 300
 
-STRING [02] App Launch ............ attempted @ %TIME%
+STRING [02] App Launch ............ attempted
 ENTER
 ENTER
-
 
 REM ============================================================
 REM === Test 01: Basic HID (Now Safe — Known Text Sink)       ===
@@ -47,16 +44,15 @@ REM ============================================================
 
 STRING [01] Basic HID ............. pending
 ENTER
-DELAY 300
+DELAY 250
 
 STRING [BUST-TEST-01]
 ENTER
 DELAY 300
 
-STRING [01] Basic HID ............. attempted @ %TIME%
+STRING [01] Basic HID ............. attempted
 ENTER
 ENTER
-
 
 REM ============================================================
 REM === Test 03: Shell Access                                   ===
@@ -67,26 +63,26 @@ ENTER
 DELAY 300
 
 ALT TAB
-DELAY 300
+DELAY 400
 GUI r
-DELAY 300
+DELAY 600
 STRING cmd
+DELAY 250
 ENTER
-DELAY 900
+DELAY 1300
 
 STRING whoami > %TEMP%\bust_whoami.txt
 ENTER
-DELAY 400
+DELAY 500
 
 ALT TAB
-DELAY 300
-STRING [03] Shell Access .......... attempted @ %TIME%
+DELAY 400
+STRING [03] Shell Access .......... attempted
 ENTER
 STRING      whoami:
 CTRL V
 ENTER
 ENTER
-
 
 REM ============================================================
 REM === Test 04: Browser Interaction                            ===
@@ -97,19 +93,19 @@ ENTER
 DELAY 300
 
 ALT TAB
-DELAY 300
+DELAY 400
 GUI r
-DELAY 300
+DELAY 600
 STRING https://example.com
+DELAY 250
 ENTER
-DELAY 1800
+DELAY 2000
 
 ALT TAB
-DELAY 300
-STRING [04] Browser Interaction .... attempted @ %TIME%
+DELAY 400
+STRING [04] Browser Interaction .... attempted
 ENTER
 ENTER
-
 
 REM ============================================================
 REM === Test 05: Filesystem Write                                ===
@@ -120,27 +116,27 @@ ENTER
 DELAY 300
 
 ALT TAB
-DELAY 300
+DELAY 400
 GUI r
-DELAY 300
+DELAY 600
 STRING cmd
+DELAY 250
 ENTER
-DELAY 900
+DELAY 1300
 
 STRING cd %TEMP%
 ENTER
-DELAY 300
+DELAY 400
 
 STRING echo [BUST-TEST-05] > bust_test_05.txt
 ENTER
-DELAY 400
+DELAY 500
 
 ALT TAB
-DELAY 300
-STRING [05] Filesystem Write ....... attempted @ %TIME%
+DELAY 400
+STRING [05] Filesystem Write ....... attempted
 ENTER
 ENTER
-
 
 REM ============================================================
 REM === Test 06: Script Host Access                              ===
@@ -151,26 +147,26 @@ ENTER
 DELAY 300
 
 ALT TAB
-DELAY 300
+DELAY 400
 GUI r
-DELAY 300
+DELAY 600
 STRING powershell
+DELAY 250
 ENTER
-DELAY 1000
+DELAY 1500
 
 STRING Write-Output "[BUST-TEST-06]"
 ENTER
-DELAY 400
+DELAY 500
 
 ALT TAB
-DELAY 300
-STRING [06] Script Host Access ..... attempted @ %TIME%
+DELAY 400
+STRING [06] Script Host Access ..... attempted
 ENTER
 ENTER
-
 
 REM --- Footer ---
 STRING --------------------------------
 ENTER
-STRING Test complete @ %TIME%.
+STRING Test complete.
 ENTER
