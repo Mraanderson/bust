@@ -11,7 +11,7 @@ ENTER
 DELAY 1000
 
 REM --- Pre‑Flight Header ---
-STRING [BUST] Combined Test — Windows
+STRING [BUST] Combined Test
 ENTER
 STRING --------------------------------
 ENTER
